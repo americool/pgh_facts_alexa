@@ -26,7 +26,7 @@ var APP_ID = undefined; //replace with "amzn1.echo-sdk-ams.app.[your-unique-valu
 /**
  * Array containing Trump facts.
  */
-var TRUMP_FACTS = [
+var PGH_FACTS = [
     "Did you know Donald Trump's last name was originally Drumph?",
     "Did you know nearly 30 years ago Vanity Fair made a joke about Donald Trump having small hands…and he’s still not over it?", 
     "Remember that time Donald Trump said he wanted to date his daughter?", 
@@ -60,46 +60,46 @@ var TRUMP_FACTS = [
 var AlexaSkill = require('./AlexaSkill');
 
 /**
- * TrumpJag is a child of AlexaSkill.
+ * PGHFACTS is a child of AlexaSkill.
  * To read more about inheritance in JavaScript, see the link below.
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_Object-Oriented_JavaScript#Inheritance
  */
-var TrumpJag = function () {
+var pittsburgh_Facts = function () {
     AlexaSkill.call(this, APP_ID);
 };
 
 // Extend AlexaSkill
-TrumpJag.prototype = Object.create(AlexaSkill.prototype);
-TrumpJag.prototype.constructor = TrumpJag;
+pittsburgh_Facts.prototype = Object.create(AlexaSkill.prototype);
+pittsburgh_Facts.prototype.constructor = pittsburgh_Facts;
 
-TrumpJag.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
-    console.log("TrumpJag onSessionStarted requestId: " + sessionStartedRequest.requestId
+pittsburgh_Facts.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
+    console.log("Pittsburgh facts onSessionStarted requestId: " + sessionStartedRequest.requestId
         + ", sessionId: " + session.sessionId);
     // any initialization logic goes here
 };
 
-TrumpJag.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
-    console.log("TrumpJag onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
+pittsburgh_Facts.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
+    console.log("Pittsburgh facts onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
     handleNewFactRequest(response);
 };
 
 /**
  * Overridden to show that a subclass can override this function to teardown session state.
  */
-TrumpJag.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
+pittsburgh_Facts.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
     console.log("TrumpJag onSessionEnded requestId: " + sessionEndedRequest.requestId
         + ", sessionId: " + session.sessionId);
     // any cleanup logic goes here
 };
 
-TrumpJag.prototype.intentHandlers = {
+pittsburgh_Facts.prototype.intentHandlers = {
     "GetNewFactIntent": function (intent, session, response) {
         handleNewFactRequest(response);
     },
 
     "AMAZON.HelpIntent": function (intent, session, response) {
-        response.ask("You can ask Trump is a Jagoff tell me about how Trum is a Jagoff, or, you can say exit... What can I help you with?", "What can I help you with?");
+        response.ask("Ask me for a fact about Pittsburgh by saying tell me a fact about pittsburgh", "What can I help you with?");
     },
 
     "AMAZON.StopIntent": function (intent, session, response) {
@@ -122,15 +122,15 @@ function handleNewFactRequest(response) {
     var fact = TRUMP_FACTS[factIndex];
 
     // Create speech output
-    var speechOutput = "Here's your fact about how trump is a jagoff: " + fact;
+    var speechOutput = "Did you know that: " + fact;
 
-    response.tellWithCard(speechOutput, "TrumpJag", speechOutput);
+    response.tellWithCard(speechOutput, "pittsburgh_Facts", speechOutput);
 }
 
 // Create the handler that responds to the Alexa Request.
 exports.handler = function (event, context) {
     // Create an instance of the TrumpJag skill.
-    var trumpJag = new TrumpJag();
-    trumpJag.execute(event, context);
+    var pittsburgh_facts = new pittsburgh_Facts();
+    pittsburgh_facts.execute(event, context);
 };
 
