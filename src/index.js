@@ -24,34 +24,36 @@
 var APP_ID = undefined; //replace with "amzn1.echo-sdk-ams.app.[your-unique-value-here]";
 
 /**
- * Array containing Trump facts.
+ * Array containing Pittsburgh facts.
  */
 var PGH_FACTS = [
-    "Did you know Donald Trump's last name was originally Drumph?",
-    "Did you know nearly 30 years ago Vanity Fair made a joke about Donald Trump having small hands…and he’s still not over it?", 
-    "Remember that time Donald Trump said he wanted to date his daughter?", 
-    "He actually has vague ties to organized crime. Though, in fairness, he probably thinks that’s cool.",
-    "He’s actually a terrible business man. If he had simply invested his real estate holdings and inheritance in index funds, he’d be worth 10 billion more than he is today.", 
-    "He looks really stupid. I’m not sure that’s a fact, but it’s hard to argue.", 
-    "He described his high level of intelligence as saying… I have the best words…seriously? What a jagoff.",
-    "Lindsey Graham said that if you killed Ted Cruz on the floor of the senate, and the trial was on the floor of the senate, nobody could could convict you. However, he ended up endorsing Ted Cruz…because he wasn’t Trump.", 
-    "People think Ted Cruz is the Zodiac Killer, but endorsed him over Trump. Let that one sink in.", 
-    "Donald Trump used to have a brand of steaks which you could only buy at the sharper image in 2007. In 2008 the Sharper Image went bankrupt.", 
-    "Trump, despite his bragging, has a huge collection of failed business ventures. Trump airlines, water, magazine, and university have all gone under.", 
-    "Donald trump doesn’t drink. That’s not necessarily bad but it’s kinda scary when you realize his brain like this sober.", 
-    "Trump won a film award once. Worst supporting actor. In a film where he played himself.", 
-    "He thinks Taco Bowls are Mexican food.",  
-    "In 1991 he would pretended to be his own publicist so he could brag about himself to journalists.", 
-    "He signs letters in gold sharpie…seriously.", 
-    "If you do a google search for Donald trump’s friend the first thing that comes up is Mike Tyson.", 
-    "As Linsey Graham said, “he makes John Boehner look like an albino.", 
-    "Did you know his IQ is one of the highest? Yeah he said that.", 
-    "He has a plan to make America great again. By banning shredded cheese.", 
-    "Trump has patteneded products nearly identical to several current existing ones, a Trump version of monopoly, a trump vodka, a trump travel website, and a trump lifestyle magazine. However they all failed rather quickly. Probably because they have his face on them.", 
-    "Trump eat’s Pizza with a knife and fork. Enough said.", 
-    "Trump orders steak well done. He’s unfit to hold any office, and certainly to have sold steaks.",
-    "If Trump killed himself so his estate could collect the 100 million dollar bounty El Chapo put on him. He’d still need to die another 4 times to pay off the rest of his debt. Alas only the weird thing he wears on his head has nine lives.", 
-    "President Obama pointed out that Trump could possibly succeed where he failed; in finally closing down guantanamo bay, given all his experience in running waterfront property into the ground."
+    "More than 50 major films have been shot on location in the area during the past decade?",
+    "Pittsburgh has the first Ferris Wheel in 1893?", 
+    "Pittsburgh had the world's first commerical radio station in 1923?", 
+    "Pittsburgh is home to the original polio vaccine?",
+    "Pittsburgh had the first internet emoticon, the smiley, in 1982", 
+    "The Big Mac, the world's most famous hamburger, was 'invented' near Pittsburgh by McDonald's franchise owner Jim Delligatti in 1967 and distributed nationally in 1968?", 
+    "Pittsburgh is home to the first U.S. Public Television Station in 1954?",
+    "The much beloved Fred Rogers of “Mr. Rogers’ Neighborhood” called Pittsburgh home?", 
+    "Pittsburgh has an Inspector of Steps, a man who checks all 700 of the stairs making this hilly city navigable.", 
+    "Pittsburghers use something called a “parking chair” to save their parking space in the street?", 
+    "Pittsburgh is home to the first Ice Capades in 1940?", 
+    "The Point State Park fountain is actually spewing out 6,000 gallons per minute of water from a glacial formation?", 
+    "Pittsburgh is the city of bridges...446...more than anywhere else in the world? Yes. Even more than Venice.", 
+    "Pittsburgh-based American Bantam Car Company developed the first Jeep?",  
+    "In 1913, Pittsburgh opened the first gas station ever?", 
+    "1909, Pittsburgh built the first baseball stadium, Forbes Field?", 
+    "Joe Gilliam, a Pittsburgh Steeler, was the first ever African-American NFL starting quarterback?", 
+    "Alcoa, a Pittsburgh-based company, created the handy pull-tab on cans in 1962?", 
+    "Rosie the Riveter was born in Pittsburgh in 1942?", 
+    "Pittsburgh created the first robotics insititute in 1979 at Carnegie Mellon University?", 
+    "Hugh J. Ward first came up with the concept of bingo in Pittsburgh and began running the game at carnivals in the early 1920s, taking it nationwide in 1924?", 
+    "Pittsburgh's long history of professional sports has produced some of the greatest athletes and legends of all time, including Kurt Angle, Roberto Clemente, Mario Lemieux, Dan Marino, Bill Mazeroski, Joe Montana, Joe Namath, Arnold Palmer, and Johnny Unitas?", 
+    "Sam Isaly invented the Klondike Bar in 1929. Pittsburghers know and love Isaly’s Deli for its chipped ham and barbecue sauce, among other favorites.",
+    "With six victories, the Pittsburgh Steelers have won the most Super Bowls in the NFL.", 
+    "The Carnegie Museum of Art, which opened in 1895, holds the distinction of being the world’s first modern art museum?",
+    "The Poison Center at Children’s Hospital of Pittsburgh created the first Mr. Yuk stickers in 1971?",
+    "The Civic Arena made history, becoming the first stadium with a retractable roof, when it opened on September 18, 1961, it was created before hydrualic technology and when it's creator died, nobody knew how to fix it."
 ];
 
 /**
@@ -88,7 +90,7 @@ pittsburgh_Facts.prototype.eventHandlers.onLaunch = function (launchRequest, ses
  * Overridden to show that a subclass can override this function to teardown session state.
  */
 pittsburgh_Facts.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
-    console.log("TrumpJag onSessionEnded requestId: " + sessionEndedRequest.requestId
+    console.log("Pittsburgh facts onSessionEnded requestId: " + sessionEndedRequest.requestId
         + ", sessionId: " + session.sessionId);
     // any cleanup logic goes here
 };
@@ -117,9 +119,9 @@ pittsburgh_Facts.prototype.intentHandlers = {
  * Gets a random new fact from the list and returns to the user.
  */
 function handleNewFactRequest(response) {
-    // Get a random Trump insult from the trump facts list
-    var factIndex = Math.floor(Math.random() * TRUMP_FACTS.length);
-    var fact = TRUMP_FACTS[factIndex];
+    // Get a random  fact from the  facts list
+    var factIndex = Math.floor(Math.random() * PGH_FACTS.length);
+    var fact = PGH_FACTS[factIndex];
 
     // Create speech output
     var speechOutput = "Did you know that: " + fact;
@@ -129,7 +131,7 @@ function handleNewFactRequest(response) {
 
 // Create the handler that responds to the Alexa Request.
 exports.handler = function (event, context) {
-    // Create an instance of the TrumpJag skill.
+    // Create an instance of the pittsburgh_Facts skill.
     var pittsburgh_facts = new pittsburgh_Facts();
     pittsburgh_facts.execute(event, context);
 };
